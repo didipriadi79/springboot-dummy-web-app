@@ -1,6 +1,6 @@
-package com.priadi.web.dummy.domain.dto;
+package com.priadi.web.dummy.dto;
 
-public class UserDto {
+public class UserDTO {
     Long id;
     String name;
     String email;

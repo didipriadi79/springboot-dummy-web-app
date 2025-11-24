@@ -1,6 +1,6 @@
-package com.priadi.web.dummy.domain;
+package com.priadi.web.dummy.dto;
 
-public class BaseResponse<T> {
+public class BaseResDTO<T> {
     private String message;
     private int code;
     private T data;
