@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserService {
     public List<UserModel> getAllUser();
     public BaseResDTO<String>  addUser(UserModel user);
+    public BaseResDTO<String>  editUser(UserModel user);
+    public UserModel getUser(Long id);
 }

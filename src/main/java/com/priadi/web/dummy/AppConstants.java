@@ -8,7 +8,9 @@ public class AppConstants {
     public static final String MSG_MEMUAT_DATA_GAGAL = "Gagal memuat data";
 
 
-    public static final String URL_PATH_GET_ALL_USER = "[BASE_URL]/user/get-all-user";
-    public static final String URL_PATH_ADD_USER = "[BASE_URL]/user/add-user";
+    public static final String URL_PATH_GET_ALL_USER = "[BASE_URL]/user/get-all";
+    public static final String URL_PATH_ADD_USER = "[BASE_URL]/user/add";
+    public static final String URL_PATH_EDIT_USER = "[BASE_URL]/user/edit";
+    public static final String URL_PATH_GET_USER = "[BASE_URL]/user/[id]";
 
 }

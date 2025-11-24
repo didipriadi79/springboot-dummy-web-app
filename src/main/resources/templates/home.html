@@ -7,7 +7,7 @@
 <body>
     <script th:inline="javascript">
         /*<![CDATA[*/
-        var message = /*[[${successMessage}]]*/;
+        var message = /*[[${alertMessage}]]*/;
         if (message) {
             alert(message);
             setTimeout(function() {
@@ -16,8 +16,8 @@
         }
         /*]]>*/
     </script>
-    <div th:if="${successMessage}" id="pop-up-message" class="alert alert-success" role="alert">
-        <p th:text="${successMessage}"></p>
+    <div th:if="${alertMessage}" id="pop-up-message" class="alert alert-success" role="alert">
+        <p th:text="${alertMessage}"></p>
     </div>
     <h2>Data Pengguna</h2>
     <a href="/tambah-pengguna">Tambah</a>
@@ -36,7 +36,7 @@
             <td th:text="${user.name}"></td>
             <td th:text="${user.email}"></td>
             <td th:text="${user.username}"></td>
-            <td> <a th:href="@{/showFormForUpdate/{id}(id=${user.id})}"
+            <td> <a th:href="@{/edit-pengguna/{id}(id=${user.id})}"
                     class="btn btn-primary">Update</a>
                 <a th:href="@{/deleteEmployee/{id}(id=${user.id})}"
                    class="btn btn-danger">Delete</a>

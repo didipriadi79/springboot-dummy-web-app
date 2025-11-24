@@ -24,15 +24,11 @@ public class UserServiceImpl implements UserService {
     public List<UserModel> getAllUser() {
         List<UserModel> listUser = new ArrayList<>();
 
-        List<UserDTO> resultList = userAppService.apiGetAllUser();
+        List<Object> resultList = userAppService.apiGetAllUser();
 
         if(resultList != null) {
-            for (UserDTO user : resultList) {
-                UserModel userModel = new UserModel();
-                userModel.setId(user.getId());
-                userModel.setName(user.getName());
-                userModel.setEmail(user.getEmail());
-                userModel.setUsername(user.getUsername());
+            for (Object user : resultList) {
+                UserModel userModel = objectMapper.convertValue(user, UserModel.class);
 
                 listUser.add(userModel);
             }
@@ -44,7 +40,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public BaseResDTO<String> addUser(UserModel user) {
         UserDTO userDTO = objectMapper.convertValue(user, UserDTO.class);
-        BaseResDTO<String> respones = userAppService.addUser(userDTO);
-        return respones;
+        BaseResDTO<String> response = userAppService.addUser(userDTO);
+        return response;
+    }
+
+    @Override
+    public BaseResDTO<String> editUser(UserModel user) {
+        UserDTO userDTO = objectMapper.convertValue(user, UserDTO.class);
+        BaseResDTO<String> response = userAppService.updateUser(userDTO);
+        return response;
+    }
+
+    @Override
+    public UserModel getUser(Long id) {
+        UserModel user = objectMapper.convertValue(userAppService.getUser(id), UserModel.class);
+        return user;
     }
 }
